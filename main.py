@@ -1,4 +1,4 @@
-from src.api import search
+from api import search
 
 if __name__ == "__main__":
 

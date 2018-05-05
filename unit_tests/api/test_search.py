@@ -1,11 +1,11 @@
 import unittest
 from mock import patch, MagicMock
-from src.api import search
+from api import search
 
 
 class TestSearch(unittest.TestCase):
 
-    @patch('src.api.search.requests')
+    @patch('api.search.requests')
     def test__search__movie___WillReturnAListOfResults__WhenTMDBReturnsMultipleResults(self,
                                                                                        mock_requests):
 
@@ -20,7 +20,7 @@ class TestSearch(unittest.TestCase):
 
         self.assertEqual(expected_results, actual_results)
 
-    @patch('src.api.search.requests')
+    @patch('api.search.requests')
     def test__search__movie___WillReturnAnEmptyList__WhenTMDBReturnsZeroMovies(self,
                                                                                mock_requests):
         mock_respone = MagicMock()
