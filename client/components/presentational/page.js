@@ -3,14 +3,18 @@
 import React from 'react';
 import Form from './form.js';
 
-var Page = (props) => (
-  <div>
-    <div>
-      <div className="page-section">
-        <Form/>
+export class Page extends React.Component {
+  render(){
+    return(
+      <div>
+        <div>
+          <div className="page-section">
+            <Form/>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
 export default Page;
