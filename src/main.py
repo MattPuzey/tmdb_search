@@ -1,5 +1,6 @@
-from src.api import tmdb
+from src.api import search
 
 if __name__ == "__main__":
 
-    response = tmdb.search_movie('')
+    results = search.movie('blade runner')
+    print(results)
