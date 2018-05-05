@@ -14,8 +14,9 @@ var Form = (props) => (
         className="button"
         type="submit"
         value="Submit"
-        role="button"
+        role="button">
       </input>
+     </div>
   </form>
 );
 

@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ResendCode from './containers/movie_service.js';
+import ResendCode from './containers/movieService.js';
 import Page from './presentational/page.js';
 
 

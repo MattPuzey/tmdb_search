@@ -1,10 +1,8 @@
 module.exports = {
-  entry: './main.js',
+  entry: './components/main.js',
   module: {
     rules: [
       {
-        exclude: __dirname + '/node_modules/',
-        include: __dirname + '/app/',
         loader: 'babel-loader',
         options: {
           presets: ['es2015', 'react'],

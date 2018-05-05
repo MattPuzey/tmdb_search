@@ -7,7 +7,7 @@ var Page = (props) => (
   <div>
     <div>
       <div className="page-section">
-        <Form>
+        <Form/>
       </div>
     </div>
   </div>
