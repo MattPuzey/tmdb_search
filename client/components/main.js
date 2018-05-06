@@ -14,11 +14,13 @@ class SearchMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {search: {}} ;
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event){
     event.preventDefault();
     console.log('searching...');
+    console.log(this.state.search.string);
     Movie.get(this.state.search.string)
       .then(ParseJson)
       .then(Movie.parseResponse)
