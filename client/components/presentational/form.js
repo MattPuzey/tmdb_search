@@ -7,16 +7,18 @@ export class Form extends React.Component {
     return(
       <form onSubmit={this.props.onSubmit}>
         <div>
+          <label>
+          Search:
+            <input
+              type="text"
+              value={this.props.input}
+              name='search'
+              onChange={this.props.onInput}>
+            </input>
+          </label>
           <input
-            type="text"
-            input={this.props.input}
-            onChange={this.props.onInput}>
-          </input>
-          <input
-            className="button"
             type="submit"
-            value="Submit"
-            role="button">
+            value="Submit">
           </input>
         </div>
       </form>);

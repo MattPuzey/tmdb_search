@@ -15,6 +15,13 @@ class SearchMovie extends React.Component {
     super(props);
     this.state = {search: {}} ;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({
+      search: {string: event.target.value}
+    });
   }
 
   handleSubmit(event){
@@ -33,7 +40,7 @@ class SearchMovie extends React.Component {
     return (
       <Page
         onSubmit={this.handleSubmit}
-        onInput={this.onInput}
+        onInput={this.handleChange}
         search={this.state.search}/>
     );
   }
