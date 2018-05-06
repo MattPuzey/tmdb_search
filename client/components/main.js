@@ -6,14 +6,14 @@ import ReactDOM from 'react-dom';
 
 import Movie from './containers/movieService.js';
 import Page from './presentational/page.js';
-import ParseJson from '../common/common.js';
+import { parseJSON } from '../common/common.js';
 
 
 class SearchMovie extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {search: {}} ;
+    this.state = { search: {} } ;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -26,11 +26,19 @@ class SearchMovie extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
+
     console.log('searching...');
-    console.log(this.state.search.string);
-    Movie.get(this.state.search.string)
-      .then(ParseJson)
-      .then(Movie.parseResponse)
+    let searchString = this.state.search.string;
+    Movie.get(searchString)
+      .then(parseJSON)
+      .then(({data, status}) => {
+        this.setState({
+          search: {
+            string: searchString,
+            results: data
+          }
+        });
+      })
       .catch((error) => {
         console.error(error);
       });

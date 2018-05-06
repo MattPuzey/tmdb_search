@@ -3,6 +3,7 @@
 import React from 'react';
 import Form from './form.js';
 
+// convert to functional Component
 export class Page extends React.Component {
   render(){
     return(
