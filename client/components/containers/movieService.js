@@ -16,7 +16,6 @@ var Movie = {
     return fetch(full_url, {
       method: 'GET',
       headers: basicHeaders,
-      mode: 'no-cors',
       credentials: 'same-origin'
     });
   },
