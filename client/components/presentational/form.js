@@ -5,12 +5,12 @@ import React from 'react';
 export class Form extends React.Component {
   render(){
     return(
-      <form onSubmit={this.props.handleSubmit}>
+      <form onSubmit={this.props.onSubmit(this.props.value)}>
         <div>
           <input
             type="text"
             value={this.props.value}
-            onChange={this.props.onChange}>
+            onChange={this.props.onInput}>
           </input>
           <input
             className="button"
@@ -18,7 +18,7 @@ export class Form extends React.Component {
             value="Submit"
             role="button">
           </input>
-         </div>
+        </div>
       </form>);
   }
 }

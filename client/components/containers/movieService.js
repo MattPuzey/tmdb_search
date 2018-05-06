@@ -1,10 +1,12 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable no-undef */
 
+let url = 'http://localhost:8888?search_string=';
+
 var Movie = {
 
-  get: () => {
-    var full_url = 'localhost:8888';
+  get: (searchString) => {
+    var full_url = url + searchString;
     return fetch(full_url, {
       method: 'GET',
       headers: {
@@ -17,11 +19,17 @@ var Movie = {
     });
   },
 
-  parseResponse: ({data, status}) => {
-    if (status === 200) {
-      console.log(data)
+  parseResponse: (response) => {
+    response.json().then(json => {
+      metaData = {
+        data: json,
+        status: response.status
+      };
+    });
+    if (metaData.status === 200) {
+      console.log(metaData.data);
     }
-  }
+  },
 };
 
 export default Movie;
