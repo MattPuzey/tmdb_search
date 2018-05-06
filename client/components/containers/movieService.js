@@ -21,9 +21,11 @@ var Movie = {
   },
 
   parseResponse: ({data, status}) => {
-    if (status === 200) {
-      console.log(data);
+    let titles = [];
+    for (var result of data.results) {
+      titles.push(result.title);
     }
+    return titles;
   },
 };
 

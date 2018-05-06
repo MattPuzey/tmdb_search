@@ -26,18 +26,13 @@ class SearchMovie extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
-
-    console.log('searching...');
-    let searchString = this.state.search.string;
-    Movie.get(searchString)
+    let search = Object.assign({}, this.state.search);
+    Movie.get(search.string)
       .then(parseJson)
-      .then(({data, status}) => {
-        this.setState({
-          search: {
-            string: searchString,
-            results: data
-          }
-        });
+      .then(Movie.parseResponse)
+      .then((results) => {
+        search.results = results;
+        this.setState({search: search});
       })
       .catch((error) => {
         console.error(error);
