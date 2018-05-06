@@ -8,13 +8,13 @@ var Movie = {
   get: (searchString) => {
     var full_url = url + searchString;
     return fetch(full_url, {
-      method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'pragma': 'no-cache',
-        'cache-control': 'no-cache'
+        'cache-control': 'no-cache',
       },
+      mode: 'no-cors',
       credentials: 'same-origin'
     });
   },
