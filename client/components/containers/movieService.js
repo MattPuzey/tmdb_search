@@ -6,7 +6,7 @@ let basicHeaders = {
   'Accept': 'application/json',
   'Content-Type': 'application/json',
   'pragma': 'no-cache',
-  'cache-control': 'no-cache',
+  'cache-control': 'no-cache'
 };
 
 var Movie = {
