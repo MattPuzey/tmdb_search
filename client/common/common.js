@@ -1,6 +1,5 @@
-export function parseJSON(response) {
-  console.log('response: ' + response);
-  return response.json().then(json => {
+export function parseJson(response) {
+  response.json().then(function(json) {
     return {
       data: json,
       status: response.status

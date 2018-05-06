@@ -1,12 +1,12 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable no-undef */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 
 import Movie from './containers/movieService.js';
 import Page from './presentational/page.js';
-import { parseJSON } from '../common/common.js';
+import { parseJson } from '../common/common.js';
 
 
 class SearchMovie extends React.Component {
@@ -30,7 +30,7 @@ class SearchMovie extends React.Component {
     console.log('searching...');
     let searchString = this.state.search.string;
     Movie.get(searchString)
-      .then(parseJSON)
+      .then(parseJson)
       .then(({data, status}) => {
         this.setState({
           search: {

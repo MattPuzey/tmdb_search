@@ -14,6 +14,7 @@ var Movie = {
   get: (searchString) => {
     var full_url = url + searchString;
     return fetch(full_url, {
+      method: 'GET',
       headers: basicHeaders,
       mode: 'no-cors',
       credentials: 'same-origin'

@@ -1,6 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable no-undef */
-import React from 'react';
+
+// import React from 'react';
 
 export class Form extends React.Component {
   render(){
