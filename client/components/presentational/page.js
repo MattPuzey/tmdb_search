@@ -4,11 +4,6 @@ import React from 'react';
 import Form from './form.js';
 
 export class Page extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
   render(){
     return(
       <div>
@@ -17,9 +12,9 @@ export class Page extends React.Component {
             <Form
               onSubmit={this.props.onSubmit}
               onInput={this.props.onInput}
-              value={this.props.value}/>
+              input={this.props.search.string}/>
           </div>
-          <p>{this.props.results}</p>
+          <p>{this.props.search.results}</p>
         </div>
       </div>
     );

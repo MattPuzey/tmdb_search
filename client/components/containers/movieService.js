@@ -19,15 +19,9 @@ var Movie = {
     });
   },
 
-  parseResponse: (response) => {
-    response.json().then(json => {
-      metaData = {
-        data: json,
-        status: response.status
-      };
-    });
-    if (metaData.status === 200) {
-      console.log(metaData.data);
+  parseResponse: ({data, status}) => {
+    if (status === 200) {
+      console.log(data);
     }
   },
 };

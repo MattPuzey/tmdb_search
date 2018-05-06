@@ -5,11 +5,11 @@ import React from 'react';
 export class Form extends React.Component {
   render(){
     return(
-      <form onSubmit={this.props.onSubmit(this.props.value)}>
+      <form onSubmit={this.props.onSubmit}>
         <div>
           <input
             type="text"
-            value={this.props.value}
+            input={this.props.input}
             onChange={this.props.onInput}>
           </input>
           <input
