@@ -1,9 +1,9 @@
 import tornado.ioloop
 import tornado.web
-from api import search
+from api import search, handler
 
 
-class MainHandler(tornado.web.RequestHandler):
+class MainHandler(handler.BaseHandler):
 
     def get(self):
         results = search.movie('blade runner 2049')
@@ -11,15 +11,10 @@ class MainHandler(tornado.web.RequestHandler):
         response = {'results': results}
         self.write(response)
 
-    def set_default_headers(self):
-        self.set_header('Access-Control-Allow-Origin', '*')
-        self.set_header('Access-Control-Allow-Credentials', True)
-        self.set_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
-
 
 def make_app():
     return tornado.web.Application([
-        (r"/", MainHandler),
+        (r'/', MainHandler),
     ])
 
 
