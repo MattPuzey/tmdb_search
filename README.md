@@ -2,4 +2,4 @@
 
 A simple GUI for TMDB API text searches.
 
-Note: add running instructions
+Note: (add build instructions)

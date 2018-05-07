@@ -1,9 +1,12 @@
+import os
 import tornado.ioloop
 import tornado.web
 from api import search, handler
 
+public_root = os.path.join(os.path.dirname(__file__), 'static')
 
-class MainHandler(handler.BaseHandler):
+
+class SearchHandler(handler.BaseHandler):
 
     def get(self):
         results = search.movie('blade runner 2049')
@@ -12,9 +15,17 @@ class MainHandler(handler.BaseHandler):
         self.write(response)
 
 
+class HomepageHandler(handler.BaseHandler):
+
+    def get(self):
+        self.render(os.path.join(public_root, 'index.html'))
+
+
 def make_app():
     return tornado.web.Application([
-        (r'/', MainHandler),
+        (r'/', HomepageHandler),
+        (r'/public/(.*)', tornado.web.StaticFileHandler, {'path': public_root}),
+        (r'/search', SearchHandler)
     ])
 
 
