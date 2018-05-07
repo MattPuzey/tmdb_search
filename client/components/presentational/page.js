@@ -3,20 +3,24 @@
 
 // import React from 'react';
 import Form from './form.js';
+import {ItemList} from './unordered-list.js';
 
-// convert to functional Component
 export class Page extends React.Component {
   render(){
+    const results = this.props.search.results;
+    const items = results ? <ItemList items={results}/> : null
     return(
       <div>
         <div>
-          <div className="page-section">
+          <div>
             <Form
               onSubmit={this.props.onSubmit}
               onInput={this.props.onInput}
               input={this.props.search.string}/>
           </div>
-          <p>{this.props.search.results}</p>
+          <div>
+            {items}
+          </div>
         </div>
       </div>
     );
