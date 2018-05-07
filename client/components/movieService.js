@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable no-undef */
 
-let url = 'http://localhost:8888?search_string=';
+let url = 'http://localhost:8888/search?text=';
 let basicHeaders = {
   'Accept': 'application/json',
   'Content-Type': 'application/json',

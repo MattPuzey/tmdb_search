@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable no-undef */
 
-// import React from 'react';
+import React from 'react';
 
 function Item(props) {
   return <li>{props.message}</li>;

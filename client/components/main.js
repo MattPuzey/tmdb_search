@@ -1,10 +1,10 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable no-undef */
 
-// import React from 'react';
-// import ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import Movie from './containers/movieService.js';
+import Movie from './movieService.js';
 import Page from './presentational/page.js';
 import { parseJson } from '../common/common.js';
 
