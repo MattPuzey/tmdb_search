@@ -1,7 +1,9 @@
 import os
+
 import tornado.ioloop
 import tornado.web
-from api import search, handler
+from app.api import handler
+from app.api import search
 
 public_root = os.path.join(os.path.dirname(__file__), 'static')
 
@@ -12,7 +14,6 @@ class SearchHandler(handler.BaseHandler):
         query_string = self.request.arguments
         search_text = query_string.get('text')[0].decode('utf-8')
         results = search.movie(search_text)
-        print(results)
         self.write({'results': results})
 
 
