@@ -4,6 +4,10 @@
 function app() {
     local apiKey=$1
 
+    pushd client
+    npm install && npx webpack
+    popd
+
     docker build . -t tmdb-search
     docker rm -f tmdb-search
     docker run -it -e "API_KEY=${apiKey}" --publish 8888:8888 --name tmdb-search tmdb-search
