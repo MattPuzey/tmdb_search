@@ -9,13 +9,14 @@ public_root = os.path.join(os.path.dirname(__file__), 'static')
 class SearchHandler(handler.BaseHandler):
 
     def get(self):
-        results = search.movie('blade runner 2049')
+        query_string = self.request.arguments
+        search_text = query_string.get('text')[0].decode('utf-8')
+        results = search.movie(search_text)
         print(results)
-        response = {'results': results}
-        self.write(response)
+        self.write({'results': results})
 
 
-class HomepageHandler(handler.BaseHandler):
+class HomePageHandler(handler.BaseHandler):
 
     def get(self):
         self.render(os.path.join(public_root, 'index.html'))
@@ -23,7 +24,7 @@ class HomepageHandler(handler.BaseHandler):
 
 def make_app():
     return tornado.web.Application([
-        (r'/', HomepageHandler),
+        (r'/', HomePageHandler),
         (r'/public/(.*)', tornado.web.StaticFileHandler, {'path': public_root}),
         (r'/search', SearchHandler)
     ])
