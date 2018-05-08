@@ -1,20 +1,9 @@
-import os
-import json
-import requests
+""" This module contains an abstraction to the Movie search."""
+from abc import ABC, abstractmethod
 
 
-API_KEY = os.environ.get('API_KEY')
-API_URL = 'https://api.themoviedb.org/3/search/movie?query="{search_string}"&api_key={api_key}'
+class MovieSearcher(ABC):
 
-
-def movie(search_string):
-
-    url = API_URL.format(
-        search_string=search_string,
-        api_key=API_KEY
-    )
-
-    response = requests.get(url=url)
-    body = json.loads(response.text)
-
-    return body['results']
+    @abstractmethod
+    def get_movies(self, search_string):
+        pass

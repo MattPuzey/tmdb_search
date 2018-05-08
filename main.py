@@ -1,33 +1,19 @@
-import os
-
 import tornado.ioloop
 import tornado.web
-from app.api import handler
-from app.api import search
 
-public_root = os.path.join(os.path.dirname(__file__), 'static')
-
-
-class SearchHandler(handler.BaseHandler):
-
-    def get(self):
-        query_string = self.request.arguments
-        search_text = query_string.get('text')[0].decode('utf-8')
-        results = search.movie(search_text)
-        self.write({'results': results})
-
-
-class HomePageHandler(handler.BaseHandler):
-
-    def get(self):
-        self.render(os.path.join(public_root, 'index.html'))
+from app.constants import PUBLIC_ROOT
+from app.handlers.home_handler import HomePageHandler
+from app.handlers.search_handler import SearchHandler
+from app.api.tmdb import TMDBSearcher
 
 
 def make_app():
+    searcher = TMDBSearcher()
+
     return tornado.web.Application([
         (r'/', HomePageHandler),
-        (r'/public/(.*)', tornado.web.StaticFileHandler, {'path': public_root}),
-        (r'/search', SearchHandler)
+        (r'/public/(.*)', tornado.web.StaticFileHandler, {'path': PUBLIC_ROOT}),
+        (r'/search', SearchHandler, {'searcher': searcher})
     ])
 
 

@@ -2,13 +2,13 @@ import unittest
 
 from mock import patch, MagicMock
 
-from app.api import search
+from app.api.tmdb import TMDBSearcher
 
 
 class TestSearch(unittest.TestCase):
 
-    @patch('app.api.search.requests')
-    def test__search__movie___WillReturnAListOfResults__WhenTMDBReturnsMultipleResults(self,
+    @patch('app.api.tmdb.requests')
+    def test__tmdb__TMDBSearch__get_movies__WillReturnAListOfResults__WhenTMDBReturnsMultipleResults(self,
                                                                                        mock_requests):
 
         mock_respone = MagicMock()
@@ -18,18 +18,20 @@ class TestSearch(unittest.TestCase):
             'title': 'blade runner'
         }]
 
-        actual_results = search.movie('blade runner')
+        searcher = TMDBSearcher()
+        actual_results = searcher.get_movies('blade runner')
 
         self.assertEqual(expected_results, actual_results)
 
-    @patch('app.api.search.requests')
-    def test__search__movie___WillReturnAnEmptyList__WhenTMDBReturnsZeroMovies(self,
+    @patch('app.api.tmdb.requests')
+    def test__tmdb__TMDBSearch__get_movies__WillReturnAnEmptyList__WhenTMDBReturnsZeroMovies(self,
                                                                                mock_requests):
         mock_respone = MagicMock()
         mock_respone.text = "{\"results\": []}"
         mock_requests.get.return_value = mock_respone
         expected_results = []
 
-        actual_results = search.movie('blade runner')
+        searcher = TMDBSearcher()
+        actual_results = searcher.get_movies('blade runner')
 
         self.assertEqual(expected_results, actual_results)
