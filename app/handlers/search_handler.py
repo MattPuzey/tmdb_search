@@ -11,10 +11,15 @@ class SearchHandler(BaseHandler):
         self.searcher = searcher
 
     def get(self):
-        query_string = self.request.arguments
-        search_text = query_string.get('text')[0].decode('utf-8')
+        search_text = parse_query(self.request)
         results = self.searcher.get_movies(search_text)
         self.write({'results': results})
 
     def post(self):
         pass
+
+
+def parse_query(request):
+    query_string = request.arguments
+    search_text = query_string.get('text')[0].decode('utf-8')
+    return search_text

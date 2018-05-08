@@ -1,20 +1,15 @@
+from mock import MagicMock
 import unittest
 
-from mock import patch, MagicMock
-
-from app.handlers.search_handler import SearchHandler
-from app.api.tmdb import TMDBSearcher
+from app.handlers.search_handler import parse_query
 
 
 class TestSearchHandler(unittest.TestCase):
 
-    def test__search_handler__SearchHandler____init____WillHoldOntoReferenceToSearcher__WhenInstantiatedWithSearcher(self):
+    def test__search_handler__parse_query__WillReturnTheTextArgument__WhenPassedAnInstanceOfATornadoRequest(self):
 
+        mock_request = MagicMock()
+        mock_request.arguments = {'text': [b'some text']}
+        text = parse_query(mock_request)
 
-
-        searcher = TMDBSearcher()
-        request = MagicMock()
-        handler = SearchHandler(request, searcher)
-
-
-        self.assertEqual(searcher, handler.searcher)
+        self.assertEqual(text, 'some text')
