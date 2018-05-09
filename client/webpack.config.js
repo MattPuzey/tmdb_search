@@ -5,8 +5,8 @@ module.exports = {
       {
         loader: 'babel-loader',
         options: {
-          presets: ['es2015', 'react'],
-          compact: false
+          compact: false,
+          babelrc: true
         },
         test: /\.js?$/,
       }
