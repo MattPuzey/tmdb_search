@@ -21,7 +21,7 @@ def make_app():
     ])
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     """ This function is the entry point for the application. """
     app = make_app()
     app.listen(8888)
