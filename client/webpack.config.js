@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './components/main.js',
+  entry: './components/index.js',
   module: {
     rules: [
       {

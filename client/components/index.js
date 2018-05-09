@@ -3,6 +3,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap';
 
 import Movie from './movieService.js';
 import Page from './presentational/page.js';

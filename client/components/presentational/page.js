@@ -4,13 +4,14 @@
 import React from 'react';
 import Form from './form.js';
 import {ItemList} from './unordered-list.js';
+import PropTypes from 'prop-types';
 
 export class Page extends React.Component {
   render(){
     const results = this.props.search.results;
-    const items = results ? <ItemList items={results}/> : null
+    const items = results ? <ItemList items={results}/> : null;
     return(
-      <div>
+      <div className="container-fluid">
         <div>
           <div>
             <Form
@@ -26,5 +27,14 @@ export class Page extends React.Component {
     );
   }
 }
+
+Page.propTypes = {
+  search: PropTypes.shape({
+    results: PropTypes.list,
+    string: PropTypes.string
+  }),
+  onSubmit: PropTypes.function,
+  onInput: PropTypes.function
+};
 
 export default Page;

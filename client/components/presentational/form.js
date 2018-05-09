@@ -2,8 +2,9 @@
 /* eslint-disable no-undef */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-var EnterCodeForm = (props) => (
+const EnterCodeForm = (props) => (
   <form onSubmit={props.onSubmit}>
     <div>
       <label>
@@ -21,5 +22,11 @@ var EnterCodeForm = (props) => (
       </input>
     </div>
   </form>);
+
+EnterCodeForm.propTypes = {
+  input: PropTypes.string,
+  onSubmit: PropTypes.function,
+  onInput: PropTypes.function,
+};
 
 export default EnterCodeForm;
