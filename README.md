@@ -24,7 +24,7 @@ For linux distributions (untested):
 ./run.sh app <api_key>
 ```
 The application will be available on: [localhost:8888](http://localhost:8888). Successful searches will return film titles from the database.
-Searches should be as specific as possible as the application collates results from a multiple page search where there are enough resutls to 
+Searches should be as specific as possible as the application collates results from a multiple page search where there are enough results to 
 trigger pagination on the TMDB API. Where pagination is present in a result-set there will be a short delay in the repsonse to the client. 
 
 
