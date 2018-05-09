@@ -5,7 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Form from './form.js';
-import NavBar from './nav.js';
+import NavBar from './nav-loader.js';
 import {ItemList} from './unordered-list.js';
 
 export class Page extends React.Component {

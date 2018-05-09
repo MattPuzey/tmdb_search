@@ -4,13 +4,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputField = (props) => (<input
-  type="text"
-  placeholder="Search"
-  value={props.input}
-  name='search'
-  onChange={props.onInput}>
-</input>);
+const InputField = (props) => (
+  <input
+    className="form-control mr-sm-2"
+    type="text"
+    value={props.input}
+    name='search'
+    onChange={props.onInput}>
+  </input>);
 
 InputField.propTypes = {
   input: PropTypes.string,
