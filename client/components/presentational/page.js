@@ -2,9 +2,11 @@
 /* eslint-disable no-undef */
 
 import React from 'react';
-import Form from './form.js';
-import {ItemList} from './unordered-list.js';
 import PropTypes from 'prop-types';
+
+import Form from './form.js';
+import NavBar from './nav.js';
+import {ItemList} from './unordered-list.js';
 
 export class Page extends React.Component {
   render(){
@@ -27,8 +29,7 @@ export class Page extends React.Component {
               input={this.props.search.string}/>
           </div>
           <div>
-            {this.props.fetching ?
-              <h2>Fetching results...</h2>: null}
+            {this.props.fetching ? <NavBar/>: null}
             {items}
           </div>
         </div>
@@ -39,7 +40,7 @@ export class Page extends React.Component {
 
 Page.propTypes = {
   search: PropTypes.shape({
-    results: PropTypes.list,
+    results: PropTypes.array,
     string: PropTypes.string
   }),
   onSubmit: PropTypes.function,

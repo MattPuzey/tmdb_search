@@ -26,7 +26,7 @@ class SearchMovie extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
-    this.setState({fetching: true})
+    this.setState({fetching: true});
     let search = Object.assign({}, this.state.search);
     Movie.get(search.string)
       .then(parseJson)

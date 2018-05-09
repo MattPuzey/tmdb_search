@@ -6,7 +6,6 @@ import React from 'react';
 function Item(props) {
   return <li className="list-group-item d-flex justify-content-between align-items-center">
     {props.message}
-    <span className="badge badge-primary badge-pill">{props.key}</span>
   </li>;
 }
 
