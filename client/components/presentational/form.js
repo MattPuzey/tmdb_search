@@ -7,21 +7,22 @@ import SubmitButton from './button.js';
 import InputField from './input.js';
 
 const EnterCodeForm = (props) => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-    <form onSubmit={props.onSubmit}>
-      <div>
-        <label>
-        Search:
-          <br/>
-          <InputField
-            value={props.input}
-            onChange={props.onInput}>
-          </InputField>
-        </label>
-        <SubmitButton/>
-      </div>
-    </form>
-  </nav>);
+
+  <form onSubmit={props.onSubmit}>
+    <div>
+      <label>
+      Search:
+        <br/>
+        <input
+          type="text"
+          value={props.input}
+          name='search'
+          onChange={props.onInput}>
+        </input>
+      </label>
+      <SubmitButton/>
+    </div>
+  </form>);
 
 EnterCodeForm.propTypes = {
   input: PropTypes.string,
