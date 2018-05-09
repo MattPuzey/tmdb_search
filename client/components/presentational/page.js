@@ -12,6 +12,13 @@ export class Page extends React.Component {
     const items = results ? <ItemList items={results}/> : null;
     return(
       <div className="container-fluid">
+        <div className="jumbotron">
+          <h1 className="display-3">Search for movies</h1>
+          <p className="lead">This is a simple lookup for movie titles.</p>
+          <hr className="my-4"/>
+          <p className="lead">
+          </p>
+        </div>
         <div>
           <div>
             <Form
@@ -20,6 +27,8 @@ export class Page extends React.Component {
               input={this.props.search.string}/>
           </div>
           <div>
+            {this.props.fetching ?
+              <h2>Fetching results...</h2>: null}
             {items}
           </div>
         </div>
@@ -34,7 +43,8 @@ Page.propTypes = {
     string: PropTypes.string
   }),
   onSubmit: PropTypes.function,
-  onInput: PropTypes.function
+  onInput: PropTypes.function,
+  fetching: PropTypes.bool
 };
 
 export default Page;

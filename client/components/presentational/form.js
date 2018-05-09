@@ -9,6 +9,7 @@ const EnterCodeForm = (props) => (
     <div>
       <label>
       Search:
+        <br/>
         <input
           type="text"
           value={props.input}
